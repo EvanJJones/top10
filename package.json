@@ -20,7 +20,9 @@
   },
   "homepage": "https://github.com/EvanJJones/top10#readme",
   "dependencies": {
+    "dotenv": "^8.2.0",
     "isomorphic-unfetch": "^3.0.0",
+    "mongodb": "^3.4.0",
     "next": "^9.1.5",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
