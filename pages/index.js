@@ -2,6 +2,8 @@ import Link from "next/link";
 import Layout from "../components/MyLayout";
 import PostLink from "../components/PostLink";
 import Button from "@material-ui/core/Button";
+import Paper from "@material-ui/core/paper";
+import { makeStyles } from "@material-ui/core/styles";
 
 function getPosts() {
   return [
@@ -11,42 +13,37 @@ function getPosts() {
   ];
 }
 
+const useStyles = makeStyles(theme => ({
+  root: {
+    padding: "2rem",
+    margin: "1rem"
+  }
+}));
+
 export default function Blog() {
+  const classes = useStyles();
+
   return (
     <Layout>
-      <h1>My Blog</h1>
-      <ul>
-        {getPosts().map(post => (
-          <PostLink key={post.id} post={post} />
-        ))}
-      </ul>
+      <Paper className={classes.root}>
+        <h1>My Blog</h1>
+        <ul>
+          {getPosts().map(post => (
+            <PostLink key={post.id} post={post} />
+          ))}
+        </ul>
+        <Button variant="contained" color="primary">
+          Hello World
+        </Button>
+      </Paper>
 
-      <Button variant="contained" color="primary">
-        Hello World
-      </Button>
       <style jsx>
         {`
-          h1,
-          a {
-            font-family: "Arial";
+          h1 {
+            color: red;
           }
-
-          ul {
-            padding: 0;
-          }
-
-          li {
-            list-style: none;
-            margin: 5px 0;
-          }
-
-          a {
-            text-decoration: none;
-            color: blue;
-          }
-
-          a:hover {
-            opacity: 0.6;
+          ,
+          .paper {
           }
         `}
       </style>
