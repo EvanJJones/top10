@@ -1,52 +1,47 @@
-import Link from "next/link";
-import Layout from "../components/MyLayout";
-import PostLink from "../components/PostLink";
-import Button from "@material-ui/core/Button";
-import Paper from "@material-ui/core/paper";
+import React from "react";
+import Container from "@material-ui/core/Container";
+import Typography from "@material-ui/core/Typography";
+import Box from "@material-ui/core/Box";
+import MuiLink from "@material-ui/core/Link";
+import ProTip from "../src/ProTip";
+import Link from "../src/Link";
 import { makeStyles } from "@material-ui/core/styles";
+import MyLayout from "../components/MyLayout";
 
-function getPosts() {
-  return [
-    { id: "hello-nextjs", title: "Hello Next.js" },
-    { id: "learn-nextjs", title: "Learn Next.js is awesome" },
-    { id: "deploy-nextjs", title: "Deploy apps with ZEIT" }
-  ];
+function Copyright() {
+  return (
+    <Typography variant="body2" color="textSecondary" align="center">
+      {"Copyright © "}
+      <MuiLink color="inherit" href="https://material-ui.com/">
+        Your Website
+      </MuiLink>{" "}
+      {new Date().getFullYear()}
+      {"."}
+    </Typography>
+  );
 }
 
 const useStyles = makeStyles(theme => ({
-  root: {
-    padding: "2rem",
-    margin: "1rem"
-  }
+  root: {}
 }));
 
-export default function Blog() {
+export default function Index() {
   const classes = useStyles();
-
   return (
-    <Layout>
-      <Paper className={classes.root}>
-        <h1>My Blog</h1>
-        <ul>
-          {getPosts().map(post => (
-            <PostLink key={post.id} post={post} />
-          ))}
-        </ul>
-        <Button variant="contained" color="primary">
-          Hello World
-        </Button>
-      </Paper>
-
-      <style jsx>
-        {`
-          h1 {
-            color: red;
-          }
-          ,
-          .paper {
-          }
-        `}
-      </style>
-    </Layout>
+    <MyLayout>
+      <Container maxWidth="sm">
+        <Box my={4}>
+          <Typography variant="h4" component="h1" gutterBottom>
+            Next.js example
+          </Typography>
+          <h1 className={classes.root}>test</h1>
+          <Link href="/about" color="secondary">
+            Go to the about page
+          </Link>
+          <ProTip />
+          <Copyright />
+        </Box>
+      </Container>
+    </MyLayout>
   );
 }
