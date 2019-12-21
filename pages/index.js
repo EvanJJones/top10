@@ -26,7 +26,12 @@ export default function Index() {
           <Typography variant="h4" component="h1" gutterBottom>
             Top Ten List
           </Typography>
-          <ListItem />
+          <ListItem
+            title={"props title"}
+            year={"props year"}
+            studio={"props studio"}
+            main={"props Main"}
+          />
         </Box>
       </Paper>
     </Container>
