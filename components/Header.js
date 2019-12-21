@@ -34,10 +34,17 @@ export default function ButtonAppBar() {
           >
             <MenuIcon />
           </IconButton>
+
           <Typography variant="h6" className={classes.title}>
             News
           </Typography>
-          <Button color="inherit">Login</Button>
+
+          <Button color="inherit" href="/login">
+            Login
+          </Button>
+          <Button color="inherit" href="/Home">
+            Home
+          </Button>
         </Toolbar>
       </AppBar>
     </div>
